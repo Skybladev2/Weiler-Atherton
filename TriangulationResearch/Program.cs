@@ -16,60 +16,72 @@ namespace TriangulationResearch
             CircularLinkedList<Vector2> subject = new CircularLinkedList<Vector2>();
             CircularLinkedList<Vector2> clip = new CircularLinkedList<Vector2>();
 
-            #region Big and small square
-            subject.AddLast(new Vector2(0, 0));
-            subject.AddLast(new Vector2(0, 4));
-            subject.AddLast(new Vector2(4, 4));
-            subject.AddLast(new Vector2(4, 0));
-            subject.AddLast(new Vector2(0, 0));
+            //#region Big and small square
+            //subject.AddLast(new Vector2(0, 0));
+            //subject.AddLast(new Vector2(0, 4));
+            //subject.AddLast(new Vector2(4, 4));
+            //subject.AddLast(new Vector2(4, 0));
+            //subject.AddLast(new Vector2(0, 0));
 
-            clip.AddLast(new Vector2(4, 1));
-            clip.AddLast(new Vector2(4, 3));
-            clip.AddLast(new Vector2(6, 3));
-            clip.AddLast(new Vector2(6, 1));
-            clip.AddLast(new Vector2(4, 1));
-            #endregion
+            //clip.AddLast(new Vector2(4, 1));
+            //clip.AddLast(new Vector2(4, 3));
+            //clip.AddLast(new Vector2(6, 3));
+            //clip.AddLast(new Vector2(6, 1));
+            //clip.AddLast(new Vector2(4, 1));
+            //#endregion
 
-            #region Shared edge
+            //#region Shared edge
+            //subject.AddLast(new Vector2(0, 0));
+            //subject.AddLast(new Vector2(0, 1));
+            //subject.AddLast(new Vector2(1, 0));
+            //subject.AddLast(new Vector2(0, 0));
+
+            //clip.AddLast(new Vector2(0, 1));
+            //clip.AddLast(new Vector2(1, 1));
+            //clip.AddLast(new Vector2(1, 0));
+            //clip.AddLast(new Vector2(0, 1));
+            //#endregion
+
+            //#region Triangle and polygon
+            //subject.AddLast(new Vector2(-3, 1));
+            //subject.AddLast(new Vector2(2, 2));
+            //subject.AddLast(new Vector2(2, -3));
+            //subject.AddLast(new Vector2(-3, 1));
+
+            //clip.AddLast(new Vector2(1, -1));
+            //clip.AddLast(new Vector2(5, -1));
+            //clip.AddLast(new Vector2(2, -5));
+            //clip.AddLast(new Vector2(-6, 3));
+            //clip.AddLast(new Vector2(1, 1));
+            //clip.AddLast(new Vector2(3, 0));
+            //clip.AddLast(new Vector2(1, -1));
+            //#endregion
+
+            //#region Simple triangles
+            //subject.AddLast(new Vector2(-2, 0));
+            //subject.AddLast(new Vector2(1, 1));
+            //subject.AddLast(new Vector2(-1, -2));
+            //subject.AddLast(new Vector2(-2, 0));
+
+            //clip.AddLast(new Vector2(-1, -1));
+            //clip.AddLast(new Vector2(1, 0));
+            //clip.AddLast(new Vector2(1, -2));
+            //clip.AddLast(new Vector2(-1, -1));
+            //#endregion
+
+            #region Two equal
             subject.AddLast(new Vector2(0, 0));
             subject.AddLast(new Vector2(0, 1));
             subject.AddLast(new Vector2(1, 0));
             subject.AddLast(new Vector2(0, 0));
 
+            clip.AddLast(new Vector2(0, 0));
             clip.AddLast(new Vector2(0, 1));
-            clip.AddLast(new Vector2(1, 1));
             clip.AddLast(new Vector2(1, 0));
-            clip.AddLast(new Vector2(0, 1));
+            clip.AddLast(new Vector2(0, 0));
             #endregion
 
-            #region Triangle and polygon
-            subject.AddLast(new Vector2(-3, 1));
-            subject.AddLast(new Vector2(2, 2));
-            subject.AddLast(new Vector2(2, -3));
-            subject.AddLast(new Vector2(-3, 1));
-
-            clip.AddLast(new Vector2(1, -1));
-            clip.AddLast(new Vector2(5, -1));
-            clip.AddLast(new Vector2(2, -5));
-            clip.AddLast(new Vector2(-6, 3));
-            clip.AddLast(new Vector2(1, 1));
-            clip.AddLast(new Vector2(3, 0));
-            clip.AddLast(new Vector2(1, -1));
-            #endregion
-
-            #region Simple triangles
-            subject.AddLast(new Vector2(-2, 0));
-            subject.AddLast(new Vector2(1, 1));
-            subject.AddLast(new Vector2(-1, -2));
-            subject.AddLast(new Vector2(-2, 0));
-
-            clip.AddLast(new Vector2(-1, -1));
-            clip.AddLast(new Vector2(1, 0));
-            clip.AddLast(new Vector2(1, -2));
-            clip.AddLast(new Vector2(-1, -1));
-            #endregion
-
-            ICollection<CircularLinkedList<Vector2>> polys = WeilerAtherton.Process(subject, clip, Operation.Difference);
+            ICollection<CircularLinkedList<Vector2>> polys = WeilerAtherton.Process(subject, clip, Operation.Union);
 
             #region Old non-hole triangulate
             //// Small test application demonstrating the usage of the triangulate
@@ -123,3 +135,4 @@ namespace TriangulationResearch
         
     }
 }
+

@@ -62,6 +62,27 @@ namespace TriangulationResearch
         {
             LinkedListNode<Vector2> curSubject = subject.First;
             Dictionary<Vector2, Pair<Vector2>> intersections = new Dictionary<Vector2, Pair<Vector2>>();
+            List<CircularLinkedList<Vector2>> polygons = new List<CircularLinkedList<Vector2>>();
+
+            if (AreEqual<Vector2>(subject, clip))
+            {
+                switch (operation)
+                {
+                    case Operation.Union:
+                        polygons.Add(subject);
+                        return polygons;
+                        break;
+                    case Operation.Intersect:
+                        polygons.Add(subject);
+                        return polygons;
+                        break;
+                    case Operation.Difference:
+                        return polygons;
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             while (curSubject != subject.Last)
             {
@@ -86,7 +107,7 @@ namespace TriangulationResearch
 
             CircularLinkedList<Vector2> entering = new CircularLinkedList<Vector2>();
             CircularLinkedList<Vector2> exiting = new CircularLinkedList<Vector2>();
-            List<CircularLinkedList<Vector2>> polygons = new List<CircularLinkedList<Vector2>>();
+            
             MakeEnterExitList(subject, clip, intersections, entering, exiting);
             subject.RemoveLast();
             clip.RemoveLast();
@@ -112,6 +133,28 @@ namespace TriangulationResearch
             }
 
             return polygons;
+        }
+
+        static bool AreEqual<T>(LinkedList<T> a, LinkedList<T> b) where T : IEquatable<T>
+        {
+            if (a.Count != b.Count)
+            {
+                return false;
+            }
+
+            LinkedListNode<T> currA = a.First;
+            LinkedListNode<T> currB = b.First;
+
+            while (currA != null)
+            {
+                if (!currA.Value.Equals(currB.Value))
+                    return false;
+
+                currA = currA.Next;
+                currB = currB.Next;
+            }
+
+            return true;
         }
 
         public static void Swap<T>(ref T left, ref T right) where T : class
