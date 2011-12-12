@@ -135,6 +135,13 @@ namespace TriangulationResearch
             return polygons;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         static bool AreEqual<T>(LinkedList<T> a, LinkedList<T> b) where T : IEquatable<T>
         {
             if (a.Count != b.Count)
