@@ -9,7 +9,7 @@ namespace TriangulationResearch
     {
         private static readonly float EPSILON = 0.0000000001f;
 
-        private static float Area(List<Vector2> contour)
+        private static float Area(IList<Vector2> contour)
         {
             int n = contour.Count;
 
@@ -48,7 +48,7 @@ namespace TriangulationResearch
             return ((aCROSSbp >= 0.0f) && (bCROSScp >= 0.0f) && (cCROSSap >= 0.0f));
         }
 
-        private static bool Snip(List<Vector2> contour, int u, int v, int w, int n, int[] V)
+        private static bool Snip(IList<Vector2> contour, int u, int v, int w, int n, int[] V)
         {
             int p;
             float Ax, Ay, Bx, By, Cx, Cy, Px, Py;
@@ -75,7 +75,7 @@ namespace TriangulationResearch
             return true;
         }
 
-        public static bool Process(List<Vector2> contour, List<Vector2> result)
+        public static bool Process(IList<Vector2> contour, List<Vector2> result)
         {
             /* allocate and initialize list of Vertices in polygon */
 

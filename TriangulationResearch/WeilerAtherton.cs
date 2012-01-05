@@ -77,6 +77,7 @@ namespace TriangulationResearch
                         return polygons;
                         break;
                     case Operation.Difference:
+                        // нужно как-то разграничивать внешние и внутренние полигоны
                         return polygons;
                         break;
                     default:
