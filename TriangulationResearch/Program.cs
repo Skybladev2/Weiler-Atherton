@@ -365,6 +365,210 @@ namespace TriangulationResearch
             Draw(subject, clip, "Second touches 1 side from outside");
             #endregion
 
+            #region Second completely inside
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-4, 0));
+            subject.AddLast(new Vector2(0, 4));
+            subject.AddLast(new Vector2(4, 0));
+            subject.AddLast(new Vector2(-4, 0));
+
+            clip.AddLast(new Vector2(-1, 2));
+            clip.AddLast(new Vector2(1, 2));
+            clip.AddLast(new Vector2(0, 1));
+            clip.AddLast(new Vector2(-1, 2));
+
+            Draw(subject, clip, "Second completely inside");
+            #endregion
+
+            #region Second touches 1 side and exits from another side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 1));
+            clip.AddLast(new Vector2(-1, 3));
+            clip.AddLast(new Vector2(-1, 0));
+            clip.AddLast(new Vector2(-3, 1));
+
+            Draw(subject, clip, "Second touches 1 side and exits from another side");
+            #endregion
+
+            #region Second touches 2 sides and exits from another side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 2));
+            clip.AddLast(new Vector2(-1, 2));
+            clip.AddLast(new Vector2(-1, 0));
+            clip.AddLast(new Vector2(-3, 2));
+
+            Draw(subject, clip, "Second touches 2 sides and exits from another side");
+            #endregion
+
+            #region Second touches 1 side and intersects same side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-2, 2));
+            clip.AddLast(new Vector2(-1, 2));
+            clip.AddLast(new Vector2(-1, 1));
+            clip.AddLast(new Vector2(-2, 2));
+
+            Draw(subject, clip, "Second touches 1 side and intersects same side");
+            #endregion
+
+            #region Second touches 1 vertex from outside
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(3, 0));
+            clip.AddLast(new Vector2(4, 1));
+            clip.AddLast(new Vector2(4, -1));
+            clip.AddLast(new Vector2(3, 0));
+
+            Draw(subject, clip, "Second touches 1 vertex from outside");
+            #endregion
+
+            #region Second touches 1 vertex from inside
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-1, 1));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(1, 1));
+            clip.AddLast(new Vector2(-1, 1));
+
+            Draw(subject, clip, "Second touches 1 vertex from inside");
+            #endregion
+
+            #region Second partially overlays 1 side from vertex and exits from another vertex
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 4));
+            clip.AddLast(new Vector2(0, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second partially overlays 1 side from vertex and exits from another vertex");
+            #endregion
+
+            #region Second touches 1 vertex from inside and intersects other vertex of the same side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 4));
+            clip.AddLast(new Vector2(0, 2));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second touches 1 vertex from inside and intersects other vertex of the same side");
+            #endregion
+
+            #region Second touches 1 vertex from inside and intersects other vertex of the same side and intersects adjacent side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 4));
+            clip.AddLast(new Vector2(0, -1));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second touches 1 vertex from inside and intersects other vertex of the same side and intersects adjacent side");
+            #endregion
+
+            #region Second touches 1 vertex from outside and shares 1 vertex
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 1));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(3, 3));
+            clip.AddLast(new Vector2(3, -1));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second touches 1 vertex from outside and shares 1 vertex");
+            #endregion
+
+            #region Second touches 1 vertex from inside and shares 1 vertex
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-1, 1));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(0, 0));
+            clip.AddLast(new Vector2(-1, 1));
+
+            Draw(subject, clip, "Second touches 1 vertex from inside and shares 1 vertex");
+            #endregion
+
+            #region Triangles are equal
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(3, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Triangles are equal");
+            #endregion
+
             ICollection<CircularLinkedList<Vector2>> polys = WeilerAtherton.Process(subject, clip, Operation.Difference);
 
             #region Triangulaion
