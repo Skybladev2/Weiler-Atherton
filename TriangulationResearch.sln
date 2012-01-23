@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangulationResearch", "Tr
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7341412E-D9DE-42B2-97D8-B54B708067DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7341412E-D9DE-42B2-97D8-B54B708067DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7341412E-D9DE-42B2-97D8-B54B708067DD}.Debug|x86.ActiveCfg = Debug|x86
 		{7341412E-D9DE-42B2-97D8-B54B708067DD}.Debug|x86.Build.0 = Debug|x86
+		{7341412E-D9DE-42B2-97D8-B54B708067DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7341412E-D9DE-42B2-97D8-B54B708067DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7341412E-D9DE-42B2-97D8-B54B708067DD}.Release|x86.ActiveCfg = Release|x86
 		{7341412E-D9DE-42B2-97D8-B54B708067DD}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection

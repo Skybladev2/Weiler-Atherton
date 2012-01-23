@@ -569,7 +569,432 @@ namespace TriangulationResearch
             Draw(subject, clip, "Triangles are equal");
             #endregion
 
-            ICollection<CircularLinkedList<Vector2>> polys = WeilerAtherton.Process(subject, clip, Operation.Difference);
+            #region Second has 2 shared vertices and intersects 1 side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(-2, 2));
+            clip.AddLast(new Vector2(3, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second has 2 shared vertices and intersects 1 side");
+            #endregion
+
+            #region Second touches 2 sides and last vertex outside
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-2, 1));
+            clip.AddLast(new Vector2(0, 4));
+            clip.AddLast(new Vector2(2, 1));
+            clip.AddLast(new Vector2(-2, 1));
+
+            Draw(subject, clip, "Second touches 2 sides and last vertex outside");
+            #endregion
+
+            #region Second has 2 shared vertices and last vertex outside
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 2));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(3, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second has 2 shared vertices and last vertex outside");
+            #endregion
+
+            #region Second has 2 shared vertices and 1 side of first partially overlays second side from vertex
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(1, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(3, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second has 2 shared vertices and 1 side of first partially overlays second side from vertex");
+            #endregion
+
+            #region Second partially overlays one side with shared vertex and stays inside forever
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 2));
+            clip.AddLast(new Vector2(0, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second partially overlays one side with shared vertex and stays inside forever");
+            #endregion
+
+            #region Second partially overlays one side with shared vertex and exits through side with shared vertex
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(-2, 2));
+            clip.AddLast(new Vector2(0, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second partially overlays one side with shared vertex and exits through side with shared vertex");
+            #endregion
+
+            #region Second partially overlays one side with shared vertex and exits through side without shared vertex
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 4));
+            clip.AddLast(new Vector2(2, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second partially overlays one side with shared vertex and exits through side without shared vertex");
+            #endregion
+
+            #region Second partially overlays one side with shared vertex and touches opposite side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(1, 2));
+            clip.AddLast(new Vector2(0, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second partially overlays one side with shared vertex and touches opposite side");
+            #endregion
+
+            #region Second has 1 shared vertex, second vertex touches opposite side and sides intersect
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-2, 3));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(0, 0));
+            clip.AddLast(new Vector2(-2, 3));
+
+            Draw(subject, clip, "Second has 1 shared vertex, second vertex touches opposite side and sides intersect");
+            #endregion
+
+            #region Second has 1 shared vertex, second vertex touches opposite side, third vertex outside
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 1));
+            subject.AddLast(new Vector2(2, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 2));
+            clip.AddLast(new Vector2(1, 0.5f));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second has 1 shared vertex, second vertex touches opposite side, third vertex outside");
+            #endregion
+
+            #region Second has 1 shared vertex and opposite side intersects adjacent side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-2, 2));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(-1, 1));
+            clip.AddLast(new Vector2(-2, 2));
+
+            Draw(subject, clip, "Second has 1 shared vertex and opposite side intersects adjacent side");
+            #endregion
+
+            #region Second has 1 shared vertex, opposite side intersects 2 sides, adjacent side intersects 1 side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(-2, 2));
+            clip.AddLast(new Vector2(2, 2));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second has 1 shared vertex, opposite side intersects 2 sides, adjacent side intersects 1 side");
+            #endregion
+
+            #region Second has 1 shared vertex and intersects both adjacent sides
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-2, 2));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(2, 2));
+            clip.AddLast(new Vector2(-2, 2));
+
+            Draw(subject, clip, "Second has 1 shared vertex and intersects both adjacent sides");
+            #endregion
+
+            #region Second has 1 shared vertex and intersects adjacent side and opposite side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 2));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(2, -1));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second has 1 shared vertex and intersects adjacent side and opposite side");
+            #endregion
+
+            #region Second has 1 shared vertex and lays completely inside
+            subject.Clear();
+            clip.Clear();
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(3, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            subject.AddLast(new Vector2(-1, 1));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(1, 1));
+            subject.AddLast(new Vector2(-1, 1));
+
+            Draw(subject, clip, "Second has 1 shared vertex and lays completely inside");
+            #endregion
+
+            #region Second has 1 shared vertex and intersects opposite side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 1));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(-1, 3));
+            clip.AddLast(new Vector2(2, 1));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second has 1 shared vertex and intersects opposite side");
+            #endregion
+
+            #region Second has 1 shared vertex, second vertex lays on opposite side and adjacent side intersects opposite
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 2));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-1, 0));
+            clip.AddLast(new Vector2(0, 2));
+            clip.AddLast(new Vector2(0, -1));
+            clip.AddLast(new Vector2(-1, 0));
+
+            Draw(subject, clip, "Second has 1 shared vertex, second vertex lays on opposite side and adjacent side intersects opposite");
+            #endregion
+
+            #region First partially overlays one side from inside
+            subject.Clear();
+            clip.Clear();
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(3, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            subject.AddLast(new Vector2(-2, 0));
+            subject.AddLast(new Vector2(0, 2));
+            subject.AddLast(new Vector2(2, 0));
+            subject.AddLast(new Vector2(-2, 0));
+
+            Draw(subject, clip, "First partially overlays one side from inside");
+            #endregion
+
+            #region First touches second from inside
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-1, 1));
+            subject.AddLast(new Vector2(1, 1));
+            subject.AddLast(new Vector2(0, 0));
+            subject.AddLast(new Vector2(-1, 1));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(3, 0));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "First touches second from inside");
+            #endregion
+
+            #region Second has 1 shared vertex, opposite side touches one vertex and adjacent side intesects opposite side of the first
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 0));
+            clip.AddLast(new Vector2(-2, 3));
+            clip.AddLast(new Vector2(1, 3));
+            clip.AddLast(new Vector2(-3, 0));
+
+            Draw(subject, clip, "Second has 1 shared vertex, opposite side touches one vertex and adjacent side intesects opposite side of the first");
+            #endregion
+
+            #region Second partially overlays one side and intersects adjacent side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-2, 1));
+            clip.AddLast(new Vector2(-1, 2));
+            clip.AddLast(new Vector2(0, -1));
+            clip.AddLast(new Vector2(-2, 1));
+
+            Draw(subject, clip, "Second partially overlays one side and intersects adjacent side");
+            #endregion
+
+            #region Second partially overlays one side and intersects other sides
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 2));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-1, 0));
+            clip.AddLast(new Vector2(0, 3));
+            clip.AddLast(new Vector2(1, 0));
+            clip.AddLast(new Vector2(-1, 0));
+
+            Draw(subject, clip, "Second partially overlays one side and intersects other sides");
+            #endregion
+
+            #region Second has 1 vertex on side and intersects adjacent side
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-2, 0));
+            subject.AddLast(new Vector2(0, 2));
+            subject.AddLast(new Vector2(2, 0));
+            subject.AddLast(new Vector2(-2, 0));
+
+            clip.AddLast(new Vector2(-1, 1));
+            clip.AddLast(new Vector2(-1, 3));
+            clip.AddLast(new Vector2(1, 2));
+            clip.AddLast(new Vector2(-1, 1));
+
+            Draw(subject, clip, "Second has 1 vertex on side and intersects adjacent side");
+            #endregion
+
+            #region Second has 1 vertex on side and intersects adjacent side containing 2 vertices inside
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-2, 0));
+            subject.AddLast(new Vector2(2, 1));
+            subject.AddLast(new Vector2(2, 0));
+            subject.AddLast(new Vector2(-2, 0));
+
+            clip.AddLast(new Vector2(0, 0.5f));
+            clip.AddLast(new Vector2(3, 2));
+            clip.AddLast(new Vector2(3, -1));
+            clip.AddLast(new Vector2(0, 0.5f));
+
+            Draw(subject, clip, "Second has 1 vertex on side and intersects adjacent side containing 2 vertices inside");
+            #endregion
+
+            #region Second has 1 vertex on side and touches opposite vertex
+            subject.Clear();
+            clip.Clear();
+
+            subject.AddLast(new Vector2(-3, 0));
+            subject.AddLast(new Vector2(0, 3));
+            subject.AddLast(new Vector2(3, 0));
+            subject.AddLast(new Vector2(-3, 0));
+
+            clip.AddLast(new Vector2(-3, 3));
+            clip.AddLast(new Vector2(3, 3));
+            clip.AddLast(new Vector2(0, 0));
+            clip.AddLast(new Vector2(-3, 3));
+
+            Draw(subject, clip, "Second has 1 vertex on side and touches opposite vertex");
+            #endregion
+            
+            //ICollection<CircularLinkedList<Vector2>> polys = WeilerAtherton.Process(subject, clip, Operation.Difference);
 
             #region Triangulaion
             //int c = 1;
